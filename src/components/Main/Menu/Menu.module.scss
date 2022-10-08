@@ -1,0 +1,34 @@
+@import '../../../assets/commonStyle/commonStyle.scss';
+
+.menuList {
+    @include flex(row, space-between, center);
+    list-style-type: none;
+
+    li {
+        background-color: $menuItem;
+        height: 46px;
+        @include flex(row, center, center);
+        border-radius: $borderRadius;
+        padding: 0 15px;
+        transition: $transition;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            margin-right: 9px;
+        }
+
+        &:hover {
+            background-color: $menuItemHover;
+        }
+    }
+
+    .menuListItemActive {
+        background-color: $menuItemActive;
+        color: $whiteColor;
+        cursor: auto;
+
+        &:hover {
+            background-color: $menuItemActive;
+        }
+    }
+}

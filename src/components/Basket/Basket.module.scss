@@ -1,0 +1,71 @@
+@import '../../assets/commonStyle/commonStyle.scss';
+
+.container {
+    margin: 0 auto;
+    padding: 100px 224px 131px 295px;
+    max-width: 1400px;
+    background-color: $whiteColor;
+}
+
+.basketControl {
+    @include flex(row, space-between, center);
+    border-bottom: 1px solid $borderContainer;
+    padding-bottom: 30px;
+
+    &>div {
+        @include flex(row, space-between, center);
+
+        img {
+            margin-right: 12px;
+        }
+    }
+}
+
+.totalData {
+    @include flex(row, space-between, center);
+    padding: 10px 0 40px;
+}
+
+.basketButtons {
+    @include flex(row, space-between, center);
+}
+
+.link {
+    text-decoration: none;
+
+}
+
+.backButton {
+    width: 220px;
+    padding: 18px 30px 16px;
+    border: 1px solid #D3D3D3;
+    border-radius: $borderRadius;
+    @include flex(row, center, center);
+    transition: $transition;
+    color: $colorTextGrey;
+    img {
+        margin-right: 10px;
+    }
+    &:hover {
+        background-color: black;
+        color: $whiteColor;
+    }
+}
+
+.payButton {
+    @include flex(row, center, center);
+    background: $buttonColor;
+    border-radius: $borderRadius;
+    padding: 18px 30px 16px;
+    color: $whiteColor;
+    transition: $transition;
+    &:hover {
+        background: $activeButtonColor;
+        cursor: pointer;
+    }
+}
+
+.clearBasket:hover {
+   color: #cecece;
+   cursor: pointer;
+}

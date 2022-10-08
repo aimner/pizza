@@ -1,0 +1,13 @@
+@import '../../../assets/commonStyle/commonStyle.scss';
+
+.allPizzas {
+    margin-bottom: 35px;
+}
+
+.pizzaList {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    row-gap: 65px;
+    column-gap: 35px;
+}
+

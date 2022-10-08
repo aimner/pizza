@@ -1,0 +1,115 @@
+@import '../../../../assets/commonStyle/commonStyle.scss';
+
+.pizzaListItem {
+    max-width: 280px;
+    @include flex(column, flex-start, center);
+
+    h4 {
+        margin-bottom: 22px;
+    }
+
+    img {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.pizzTypeMenu {
+    list-style-type: none;
+    @include flex(column, flex-start, center);
+    background-color: $pizzaTypeMenu;
+    width: 280px;
+    padding: 6px;
+    row-gap: 7px;
+    border-radius: 10px;
+
+    .pizzaTypeBlock {
+        @include flex(row, flex-start, center);
+        width: 100%;
+        column-gap: 6px;
+
+        div {
+            width: 131px;
+            flex-grow: 1;
+            border-radius: 5px;
+            padding: 6px 0;
+            cursor: pointer;
+            @include flex(row, center, center)
+        }
+    }
+
+    .pizzaSizeBlock {
+        @include flex(row, flex-start, center);
+        width: 100%;
+        column-gap: 6px;
+
+        div {
+            flex-grow: 1;
+            border-radius: 5px;
+            padding: 6px 0;
+            cursor: pointer;
+            @include flex(row, center, center)
+        }
+    }
+    
+    .pizzTypeMenuItem {
+        flex-grow: 1;
+        border-radius: 5px;
+        padding: 6px 0;
+        cursor: pointer;
+        @include flex(row, center, center);
+    }
+
+
+    .pizzaTypeMenuItemActive {
+        background: $whiteColor;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+        cursor: auto;
+    }
+}
+
+.costAndButton {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-top: 17px;
+}
+
+.addPizaButton {
+    width: 155px;
+    border-radius: $borderRadius;
+    border: 1px solid $buttonColor;
+    @include flex(row, center, center);
+    padding: 9px 0;
+    color: $buttonColor;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $buttonColor;
+        color: $whiteColor;
+    }
+
+    &:hover .quantityPizzas {
+        background-color: $whiteColor;
+        color: $buttonColor;
+    }
+}
+
+.quantityPizzas {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: $whiteColor;
+    background-color: $buttonColor;
+    @include flex(row, center, center);
+    margin-left: 5px;
+}
+
+
+.pizzaImgBlock {
+    @include flex(row, center, center);
+
+    img {
+        width: 260px;
+        height: 260px;
+    }
+}
