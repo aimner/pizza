@@ -1,51 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./Pizzas.module.scss";
 import { Pizza } from "./Pizza/Pizza";
 import MyLoader from "./../../Preload/Skeleton";
-import { Context } from "./../../../App";
+import { PizzaType } from "../../../types/types";
+import { counterSlice } from "./../../../redux/slice/slice";
 
-export type PizzaType = {
-  id: number;
-  imageUrl: string;
-  title: string;
-  types: number[];
-  sizes: number[];
-  price: number;
-  category: number;
-  rating: number;
+
+
+type PropsType = {
+  pizzasArr: PizzaType[];
+  setPizzasArr: React.Dispatch<React.SetStateAction<PizzaType[]>>;
+  loader: boolean;
+  setLoader: React.Dispatch<React.SetStateAction<boolean>>;
+  searchText: string;
 };
 
-export const Pizzas: React.FunctionComponent<{}> = (props) => {
-  let [pizzasArr, setPizzasArr] = useState([] as PizzaType[]);
-  let [loader, setLoader] = useState(true);
-
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8];
-
-  useEffect(() => {
-    fetch("https://633c4943f11701a65f734ada.mockapi.io/items", {
-      method: "GET",
-    })
-      .then((value) => value.json())
-      .then((value) => {
-        setPizzasArr([...value]);
-        setLoader(false);
-      });
-  }, []);
+export const Pizzas: React.FunctionComponent<PropsType> = (props) => {
+  const arr = [1, 2, 3, 4];
 
   return (
-    <Context.Consumer>
-      {(value) => {
-        return (
-          <div className={classes.pizzaContainer}>
-            <h3 className={classes.allPizzas}>Все пиццы</h3>
-            <div className={classes.pizzaList}>
-              {loader
-                ? arr.map((item, index) => <MyLoader key={index}></MyLoader>)
-                : pizzasArr.map((item, index) => <Pizza {...item} key={index}></Pizza>)}
-            </div>
-          </div>
-        );
-      }}
-    </Context.Consumer>
+
+      <div className={classes.pizzaContainer}>
+        <h3 className={classes.allPizzas}>Все пиццы</h3>
+        <div className={classes.pizzaList}>
+          {props.loader
+            ? arr.map((item, index) => <MyLoader key={index}></MyLoader>)
+            : props.pizzasArr
+                .filter((item) => item.title.toLowerCase().includes(props.searchText))
+                .map((item, index) => <Pizza {...item} key={index}></Pizza>)}
+        </div>
+      </div>
+
   );
 };

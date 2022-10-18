@@ -7,7 +7,7 @@ import { NavLink} from "react-router-dom";
 import path from "../../assets/img/Main/path.svg";
 import { BasketItem } from './BaksetItem/BasketItem';
 
-export const Basket: React.FunctionComponent<{}> = () => {
+const Basket: React.FunctionComponent<{}> = () => {
   return (
     <main className={classes.main}>
       <div className={classes.container}>
@@ -45,3 +45,5 @@ export const Basket: React.FunctionComponent<{}> = () => {
     </main>
   );
 };
+
+export default Basket

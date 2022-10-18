@@ -1,0 +1,33 @@
+@import '../../../assets/commonStyle/commonStyle.scss';
+
+.searchBlock {
+    position: relative;
+}
+
+.search {
+    border: 1px solid $menuItem;
+    height: 35px;
+    width: 300px;
+    border-radius: $borderRadius;
+    padding-left: 30px;
+    outline:none;
+
+    &:focus {
+        border: 1px solid $menuItemHover;
+
+    }
+
+
+}
+
+.imgClose {
+    position: absolute;
+    top: 5px;
+    left: 250px;
+    opacity: 0.3;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+

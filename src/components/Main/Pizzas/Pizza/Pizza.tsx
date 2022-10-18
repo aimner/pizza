@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import classes from "./Pizza.module.scss";
-import { PizzaType } from "../Pizzas";
+import { PizzaType } from "../../../../types/types";
 
 export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
   const pizzasArr = ["тонкое", "традиционное"] as const;
@@ -12,6 +12,7 @@ export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
   let [activeSize, setActiveSize] = useState(26 as typeof sizeArr[number]);
 
   let changeClass = (property: typeof sizeArr[number] | typeof pizzasArr[number]) => {
+
     if (activeDough === property) {
       return `${classes.pizzaTypeMenuItemActive}`;
     }
@@ -32,9 +33,9 @@ export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
           {props.types.map((item, index) => (
             <div
               onClick={() => setActiveDough(pizzasArr[item])}
-              className={changeClass(pizzasArr[item])} key={index}>
-              {pizzasArr[item]
-              }
+              className={changeClass(pizzasArr[item])}
+              key={index}>
+              {pizzasArr[item]}
             </div>
           ))}
         </div>
@@ -42,7 +43,8 @@ export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
           {props.sizes.map((item, index) => (
             <div
               onClick={() => setActiveSize(item as typeof sizeArr[number])}
-              className={changeClass(item as typeof sizeArr[number])} key={index}>
+              className={changeClass(item as typeof sizeArr[number])}
+              key={index}>
               {props.sizes[index]}
             </div>
           ))}
