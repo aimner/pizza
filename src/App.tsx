@@ -6,10 +6,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { Basket } from "./components/Basket/Basket";
 import { NotFound } from "./components/NotFound/NotFound";
 
+
 const Basket = React.lazy(() => import("./components/Basket/Basket"));
 
 function App() {
   let [activeSortMenu, setActiveSortMenu] = useState(false);
+
+
 
   return (
     <BrowserRouter>
@@ -38,6 +41,3 @@ function App() {
 }
 
 export default App;
-{
-  /*  */
-}

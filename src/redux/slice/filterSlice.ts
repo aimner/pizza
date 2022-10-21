@@ -7,6 +7,8 @@ const initialState: initialState = {
   descendingSortType: "asc",
   searchValue: "",
   mounted: false,
+  numberOnPaginationButton: 1,
+  numberOfPizzasShown: 4
 };
 
 type initialState = {
@@ -15,6 +17,8 @@ type initialState = {
   descendingSortType: typeof sortOrderArr[number];
   searchValue: string;
   mounted: boolean;
+  numberOnPaginationButton: number;
+  numberOfPizzasShown: number
 };
 
 export const filterSlice = createSlice({
@@ -24,6 +28,7 @@ export const filterSlice = createSlice({
     changeCategory: (state, action: PayloadAction<number>) => {
       state.category = action.payload;
       state.mounted = true;
+      state.numberOnPaginationButton = 1;
     },
     changeSort: (state, action: PayloadAction<typeof sortItemUrlArr[number]>) => {
       state.sortType = action.payload;
@@ -36,11 +41,20 @@ export const filterSlice = createSlice({
     changeSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
       state.mounted = true;
+      
+    },
+    chanheNumberOnPaginationButton: (state, action: PayloadAction<boolean>) => {
+      action.payload ? state.numberOnPaginationButton++ : state.numberOnPaginationButton--;
     },
   },
 });
 
-export const { changeCategory, changeSort, changeDescendingSort, changeSearchValue } =
-  filterSlice.actions;
+export const {
+  changeCategory,
+  changeSort,
+  changeDescendingSort,
+  changeSearchValue,
+  chanheNumberOnPaginationButton,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;

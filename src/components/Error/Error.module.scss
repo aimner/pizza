@@ -1,0 +1,10 @@
+@import '../../assets/commonStyle/commonStyle';
+
+.error {
+    @include flex(column, center, center);
+    padding-block: 200px;
+    * {
+        padding-bottom: 10px;
+        text-align: center;
+    }
+}

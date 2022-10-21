@@ -31,7 +31,6 @@ export const Search: React.FunctionComponent<{}> = (props) => {
       <input
         value={searchValue}
         onChange={(e) => allEvents(e.target.value)}
-        // onChange={(e) => props.setSearchText(e.target.value)}
         type="text"
         className={classes.search}
         placeholder="Поиск пицц..."

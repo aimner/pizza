@@ -1,18 +1,25 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import classes from "./Pizza.module.scss";
-import { PizzaType } from "../../../../types/types";
+import { pizzasArr, PizzaType, PizzaTypeInBasket, sizeArr } from "../../../../types/types";
+import { useAppDispatch, useAppSelector } from "./../../../../redux/hooks";
+import { addItem } from "../../../../redux/slice/backsetSlice";
 
 export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
-  const pizzasArr = ["тонкое", "традиционное"] as const;
+  let [activeDough, setActiveDough] = useState(
+    pizzasArr[props.types[0]] as typeof pizzasArr[number]
+  );
+  let [activeSize, setActiveSize] = useState(props.sizes[0] as typeof sizeArr[number]);
+  const dispatch = useAppDispatch();
 
-  const sizeArr = [26, 30, 40] as const;
+  const pizzas = useAppSelector((state) => state.basket.items);
 
-  let [activeDough, setActiveDough] = useState("тонкое" as typeof pizzasArr[number]);
-
-  let [activeSize, setActiveSize] = useState(26 as typeof sizeArr[number]);
+  let pizza: PizzaTypeInBasket | undefined = pizzas.find(
+    (item) =>
+      JSON.stringify(item.sortValue) ===
+      JSON.stringify({ id: props.id, size: activeSize, type: activeDough })
+  );
 
   let changeClass = (property: typeof sizeArr[number] | typeof pizzasArr[number]) => {
-
     if (activeDough === property) {
       return `${classes.pizzaTypeMenuItemActive}`;
     }
@@ -20,6 +27,22 @@ export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
       return `${classes.pizzaTypeMenuItemActive}`;
     }
     return "";
+  };
+
+  const onClickAdd = () => {
+    dispatch(
+      addItem({
+        sortValue: {
+          id: props.id,
+          size: activeSize,
+          type: activeDough,
+        },
+        imageUrl: props.imageUrl,
+        title: props.title,
+        price: props.price,
+        count: 1,
+      })
+    );
   };
 
   return (
@@ -51,9 +74,12 @@ export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
         </div>
       </div>
       <div className={classes.costAndButton}>
-        <span>от {props.price}Р</span>
-        <div className={classes.addPizaButton}>
-          + Добавить <div className={classes.quantityPizzas}>0 </div>
+        <span>
+          от <b>{props.price}Р</b>
+        </span>
+        <div className={classes.addPizaButton} onClick={onClickAdd}>
+          + Добавить{" "}
+          {pizza?.count ? <div className={classes.quantityPizzas}>{pizza?.count}</div> : ""}
         </div>
       </div>
     </div>

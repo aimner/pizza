@@ -1,35 +1,39 @@
 import React from "react";
-import { PizzaType } from "../../../types/types";
+import { pizzasArr, PizzaType } from "../../../types/types";
 import classes from "./Paginate.module.scss";
-
+import { useAppDispatch, useAppSelector } from "./../../../redux/hooks";
+import { chanheNumberOnPaginationButton } from "../../../redux/slice/filterSlice";
 
 type PropsType = {
-  activeButton: number;
-  setActiveButton: React.Dispatch<React.SetStateAction<number>>;
-  pizzasArr: PizzaType[]
+  pizzasArr: PizzaType[];
 };
 
 export const Paginate: React.FunctionComponent<PropsType> = (props) => {
+  const dispatch = useAppDispatch();
+
+  const numberOfPizzasShown = useAppSelector((state) => state.filter.numberOfPizzasShown);
+  const numberOnPaginationButton = useAppSelector((state) => state.filter.numberOnPaginationButton);
   return (
     <div className={classes.paginateBlock}>
       <div
         onClick={() => {
-          if (props.activeButton > 1) props.setActiveButton(props.activeButton - 1);
+          if (numberOnPaginationButton > 1) dispatch(chanheNumberOnPaginationButton(false));
         }}
         className={
-          props.activeButton === 1 ? `${classes.item} ${classes.itemNotActive}` : classes.item
+          numberOnPaginationButton === 1 ? `${classes.item} ${classes.itemNotActive}` : classes.item
         }>
         {"<"}
       </div>
       <ul className={classes.numbersBlock}>
-        <li className={`${classes.item} ${classes.itemActive}`}>{props.activeButton}</li>
+        <li className={`${classes.item} ${classes.itemActive}`}>{numberOnPaginationButton}</li>
       </ul>
       <div
         onClick={() => {
-          if (props.activeButton < 5) props.setActiveButton(props.activeButton + 1);
+          if (numberOnPaginationButton < props.pizzasArr.length / numberOfPizzasShown)
+            dispatch(chanheNumberOnPaginationButton(true));
         }}
         className={
-          props.activeButton === 5 ? `${classes.item} ${classes.itemNotActive}` : classes.item
+          numberOnPaginationButton >= props.pizzasArr.length / numberOfPizzasShown ? `${classes.item} ${classes.itemNotActive}` : classes.item
         }>
         {">"}
       </div>

@@ -4,9 +4,13 @@ import basket from "./../../assets/img/Header/basket.svg";
 import logo from "./../../assets/img/Header/logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search/Search";
+import { useAppSelector } from "../../redux/hooks";
 
 export const Header: React.FunctionComponent<{}> = (props) => {
   let params = useLocation();
+  const pizzasInBasket = useAppSelector((state) => state.basket.items);
+  const totalPrice = useAppSelector((state) => state.basket.totalPrice);
+  const status = useAppSelector((state) => state.pizzas.status);
 
   return (
     <header className={classes.header}>
@@ -21,16 +25,16 @@ export const Header: React.FunctionComponent<{}> = (props) => {
           </div>
         </Link>
 
-        {params.pathname === "/basket" ? null : (
+        {params.pathname === "/basket" || !status ? null : (
           <>
             <Search />
             <Link to="/basket" className={classes.link}>
               <div className={classes.basket}>
-                <div>520P</div>
+                <div>{totalPrice}P</div>
                 <div className={classes.verticalLine}></div>
                 <div className={classes.basketImgBlock}>
                   <img src={basket} alt="basket" className={classes.basketImg} />
-                  <span>3</span>
+                  <span>{pizzasInBasket.reduce((sum, item) => sum + item.count, 0)}</span>
                 </div>
               </div>
             </Link>

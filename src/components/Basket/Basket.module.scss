@@ -69,3 +69,12 @@
    color: #cecece;
    cursor: pointer;
 }
+
+.emptyBasket {
+    @include flex(column, center, center);
+    padding-block: 100px;
+    * {
+        padding-bottom: 10px;
+        text-align: center;
+    }
+}

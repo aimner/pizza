@@ -1,7 +1,7 @@
 import React from "react";
 import sort from "../../../assets/img/Header/sort.svg";
 import { changeDescendingSort, changeSort } from "../../../redux/slice/filterSlice";
-import { sortItemUrlArr, sortOrderArr } from "../../../types/types";
+import { sortItemArr, sortItemUrlArr, sortOrderArr } from "../../../types/types";
 import { useAppDispatch, useAppSelector } from "./../../../redux/hooks";
 import classes from "./SortMenu.module.scss";
 
@@ -13,7 +13,7 @@ type PropsType = {
 };
 
 export const SortMenu: React.FunctionComponent<PropsType> = (props) => {
-  const sortItemArr = ["алфавиту", "цене", "рейтингу"] as const;
+
 
   const dispatch = useAppDispatch();
 

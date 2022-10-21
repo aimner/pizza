@@ -76,6 +76,7 @@
 
 .addPizaButton {
     width: 155px;
+    height: 44px;
     border-radius: $borderRadius;
     border: 1px solid $buttonColor;
     @include flex(row, center, center);
@@ -95,8 +96,8 @@
 }
 
 .quantityPizzas {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     color: $whiteColor;
     background-color: $buttonColor;
