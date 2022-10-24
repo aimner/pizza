@@ -4,7 +4,7 @@ import { category } from "./../../../types/types";
 import { useAppDispatch, useAppSelector } from "./../../../redux/hooks";
 import { changeCategory } from "../../../redux/slice/filterSlice";
 
-const menuText = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"] as const;
+const menuText = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Сезонные"] as const;
 
 export const Menu: React.FunctionComponent<{}> = () => {
   const dispatch = useAppDispatch();

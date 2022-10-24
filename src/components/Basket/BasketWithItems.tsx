@@ -6,7 +6,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { useAppDispatch } from "./../../redux/hooks";
 import { clearAllItem } from "../../redux/slice/backsetSlice";
 import { BasketItem } from "./BaksetItem/BasketItem";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import path from "../../assets/img/Main/path.svg";
 
 const BasketWithItems = () => {
@@ -43,12 +43,12 @@ const BasketWithItems = () => {
         </div>
       </div>
       <div className={classes.basketButtons}>
-        <NavLink to="/" className={classes.link}>
+        <Link to="/pizza/items" className={classes.link}>
           <div className={classes.backButton}>
             <img src={path} alt="path" />
             <p>Вернуться назад</p>
           </div>
-        </NavLink>
+        </Link>
         <div className={classes.payButton}>Оплатить сейчас</div>
       </div>
     </>

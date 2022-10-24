@@ -13,6 +13,7 @@ export const Search: React.FunctionComponent<{}> = (props) => {
   const onSearch = useCallback(
     debounce((item: string) => {
       dispatch(changeSearchValue(item));
+      
     }, 500),
     []
   );
@@ -25,8 +26,8 @@ export const Search: React.FunctionComponent<{}> = (props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={classes.searchBlock} onClick={() => allEvents('')}>
-      {searchValue && <img src={close} alt="close" className={classes.imgClose} />}
+    <div className={classes.searchBlock} >
+      {searchValue && <img src={close} onClick={() => allEvents('')} alt="close" className={classes.imgClose} />}
     
       <input
         value={searchValue}

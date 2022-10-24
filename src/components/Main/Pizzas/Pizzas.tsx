@@ -8,7 +8,6 @@ import { useAppSelector } from "../../../redux/hooks";
 
 type PropsType = {
   pizzasArr: PizzaType[];
-  searchText: string;
 };
 
 export const Pizzas: React.FunctionComponent<PropsType> = (props) => {
@@ -16,6 +15,10 @@ export const Pizzas: React.FunctionComponent<PropsType> = (props) => {
 
   const loader = useAppSelector((state) => state.pizzas.loading);
   const numberOnPaginationButton = useAppSelector((state) => state.filter.numberOnPaginationButton);
+  const numberOfPizzasShown = useAppSelector((state) => state.filter.numberOfPizzasShown);
+
+  const firstPage = (numberOnPaginationButton - 1) * numberOfPizzasShown;
+  const lastPage = numberOnPaginationButton * numberOfPizzasShown;
 
   return (
     <div className={classes.pizzaContainer}>
@@ -24,8 +27,7 @@ export const Pizzas: React.FunctionComponent<PropsType> = (props) => {
         {loader
           ? arr.map((item, index) => <MyLoader key={index}></MyLoader>)
           : props.pizzasArr
-              .slice(numberOnPaginationButton - 1, numberOnPaginationButton + 3)
-              .filter((item) => item.title.toLowerCase().includes(props.searchText))
+              .slice(firstPage, lastPage)
               .map((item, index) => <Pizza {...item} key={item.id}></Pizza>)}
       </div>
     </div>

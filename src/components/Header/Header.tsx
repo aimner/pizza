@@ -4,18 +4,29 @@ import basket from "./../../assets/img/Header/basket.svg";
 import logo from "./../../assets/img/Header/logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search/Search";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { changeCategory, changeDescendingSort, changeSort, setNumberOnPaginationButton } from "../../redux/slice/filterSlice";
 
 export const Header: React.FunctionComponent<{}> = (props) => {
+
   let params = useLocation();
+
   const pizzasInBasket = useAppSelector((state) => state.basket.items);
   const totalPrice = useAppSelector((state) => state.basket.totalPrice);
   const status = useAppSelector((state) => state.pizzas.status);
+  const dispatch = useAppDispatch();
+
+  const onChangeParams = () => {
+    dispatch(changeCategory(0));
+    dispatch(changeSort('rating'));
+    dispatch(changeDescendingSort("desc"));
+    dispatch(setNumberOnPaginationButton(1));
+  }
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <Link to="/pizza" className={classes.link}>
+        <Link to="/pizza/items?sortBy=rating&order=desc&page=1" onClick={onChangeParams} className={classes.link}>
           <div className={classes.logoAndTitle}>
             <img src={logo} alt="LOGO" className={classes.logo} />
             <div>
@@ -28,7 +39,7 @@ export const Header: React.FunctionComponent<{}> = (props) => {
         {params.pathname === "/basket" || !status ? null : (
           <>
             <Search />
-            <Link to="/basket" className={classes.link}>
+            <Link to="/pizza/basket" className={classes.link}>
               <div className={classes.basket}>
                 <div>{totalPrice}P</div>
                 <div className={classes.verticalLine}></div>

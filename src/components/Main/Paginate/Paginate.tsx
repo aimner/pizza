@@ -13,6 +13,9 @@ export const Paginate: React.FunctionComponent<PropsType> = (props) => {
 
   const numberOfPizzasShown = useAppSelector((state) => state.filter.numberOfPizzasShown);
   const numberOnPaginationButton = useAppSelector((state) => state.filter.numberOnPaginationButton);
+
+  const pizzasArrLength = props.pizzasArr.length;
+
   return (
     <div className={classes.paginateBlock}>
       <div
@@ -29,11 +32,13 @@ export const Paginate: React.FunctionComponent<PropsType> = (props) => {
       </ul>
       <div
         onClick={() => {
-          if (numberOnPaginationButton < props.pizzasArr.length / numberOfPizzasShown)
+          if (numberOnPaginationButton < pizzasArrLength / numberOfPizzasShown)
             dispatch(chanheNumberOnPaginationButton(true));
         }}
         className={
-          numberOnPaginationButton >= props.pizzasArr.length / numberOfPizzasShown ? `${classes.item} ${classes.itemNotActive}` : classes.item
+          numberOnPaginationButton >= pizzasArrLength / numberOfPizzasShown
+            ? `${classes.item} ${classes.itemNotActive}`
+            : classes.item
         }>
         {">"}
       </div>

@@ -10,8 +10,14 @@
 .app {
     min-height: 100vh;
     background-color: $backgroundColor;
+}
 
-   
+.spinner__container {
+    margin: 0 auto;
+    padding: 300px;
+    max-width: 1400px;
+    background-color: $whiteColor;
+    text-align: center;
 }
 
 

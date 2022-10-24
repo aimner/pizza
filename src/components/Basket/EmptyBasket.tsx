@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import emptyBasket from "../../assets/img/Main/noPizzas.png";
 import classes from "./Basket.module.scss"
+import path from "../../assets/img/Main/path.svg";
 
 const EmptyBasket = () => {
   return (
@@ -14,6 +16,12 @@ const EmptyBasket = () => {
       <div>
         <img src={emptyBasket} alt="empty_basket" />
       </div>
+      <Link to="/pizza/items" className={classes.link}>
+          <div className={classes.backButton}>
+            <img src={path} alt="path" />
+            <p>Вернуться назад</p>
+          </div>
+        </Link>
     </div>
   );
 };

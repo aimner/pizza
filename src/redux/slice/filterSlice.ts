@@ -8,7 +8,7 @@ const initialState: initialState = {
   searchValue: "",
   mounted: false,
   numberOnPaginationButton: 1,
-  numberOfPizzasShown: 4
+  numberOfPizzasShown: 4,
 };
 
 type initialState = {
@@ -18,7 +18,7 @@ type initialState = {
   searchValue: string;
   mounted: boolean;
   numberOnPaginationButton: number;
-  numberOfPizzasShown: number
+  numberOfPizzasShown: number;
 };
 
 export const filterSlice = createSlice({
@@ -40,11 +40,14 @@ export const filterSlice = createSlice({
     },
     changeSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
+      state.numberOnPaginationButton = 1;
       state.mounted = true;
-      
     },
     chanheNumberOnPaginationButton: (state, action: PayloadAction<boolean>) => {
       action.payload ? state.numberOnPaginationButton++ : state.numberOnPaginationButton--;
+    },
+    setNumberOnPaginationButton: (state, action: PayloadAction<number>) => {
+      state.numberOnPaginationButton = action.payload;
     },
   },
 });
@@ -55,6 +58,7 @@ export const {
   changeDescendingSort,
   changeSearchValue,
   chanheNumberOnPaginationButton,
+  setNumberOnPaginationButton,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./slice/slice";
 import filter from "./slice/filterSlice";
 import basket from "./slice/backsetSlice";
 import pizzas from "./slice/pizzasSlice"
@@ -7,7 +6,6 @@ import pizzas from "./slice/pizzasSlice"
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     filter,
     basket,
     pizzas
