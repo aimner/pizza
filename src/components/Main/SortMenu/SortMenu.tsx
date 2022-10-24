@@ -12,7 +12,7 @@ type PropsType = {
   setActiveSortMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const SortMenu: React.FunctionComponent<PropsType> = (props) => {
+export const SortMenu: React.FC<PropsType> = (props) => {
 
 
   const dispatch = useAppDispatch();

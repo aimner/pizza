@@ -4,7 +4,7 @@ import emptyBasket from "../../assets/img/Main/noPizzas.png";
 import classes from "./Basket.module.scss"
 import path from "../../assets/img/Main/path.svg";
 
-const EmptyBasket = () => {
+const EmptyBasket: React.FC<{}>  = () => {
   return (
     <div className={classes.emptyBasket}>
       <h1>Корзина пустая</h1>

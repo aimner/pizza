@@ -7,7 +7,7 @@ import { useAppSelector } from "../../redux/hooks";
 import EmptyBasket from "./EmptyBasket";
 import BasketWithItems from "./BasketWithItems";
  
-const Basket: React.FunctionComponent<{}> = () => {
+const Basket: React.FC<{}> = () => {
   const pizzasInBasket = useAppSelector((state) => state.basket.items);
 
   return (

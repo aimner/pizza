@@ -10,7 +10,7 @@ type PropsType = {
   pizzasArr: PizzaType[];
 };
 
-export const Pizzas: React.FunctionComponent<PropsType> = (props) => {
+export const Pizzas: React.FC<PropsType> = (props) => {
   const arr = [1, 2, 3, 4];
 
   const loader = useAppSelector((state) => state.pizzas.loading);

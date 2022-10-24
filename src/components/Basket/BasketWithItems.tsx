@@ -9,7 +9,7 @@ import { BasketItem } from "./BaksetItem/BasketItem";
 import { Link } from "react-router-dom";
 import path from "../../assets/img/Main/path.svg";
 
-const BasketWithItems = () => {
+const BasketWithItems: React.FC<{}> = () => {
   const pizzasInBasket = useAppSelector((state) => state.basket.items);
   const totalPrice = useAppSelector((state) => state.basket.totalPrice);
 

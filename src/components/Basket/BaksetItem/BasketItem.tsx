@@ -7,7 +7,7 @@ import { useAppDispatch } from './../../../redux/hooks';
 
 
 
-export const BasketItem: React.FunctionComponent<PizzaTypeInBasket> = (props) => {
+export const BasketItem: React.FC<PizzaTypeInBasket> = (props) => {
   const dispatch = useAppDispatch()
 
   const onClickAdd = () => {

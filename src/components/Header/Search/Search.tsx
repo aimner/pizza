@@ -7,7 +7,7 @@ import { useAppDispatch } from "./../../../redux/hooks";
 
 
 
-export const Search: React.FunctionComponent<{}> = (props) => {
+export const Search: React.FC<{}> = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const onSearch = useCallback(

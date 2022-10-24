@@ -7,7 +7,7 @@ import { Search } from "./Search/Search";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { changeCategory, changeDescendingSort, changeSort, setNumberOnPaginationButton } from "../../redux/slice/filterSlice";
 
-export const Header: React.FunctionComponent<{}> = (props) => {
+export const Header: React.FC<{}> = () => {
 
   let params = useLocation();
 

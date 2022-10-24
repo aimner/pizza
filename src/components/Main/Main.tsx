@@ -23,7 +23,7 @@ type PropsType = {
   setActiveSortMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const Main: React.FunctionComponent<PropsType> = (props) => {
+export const Main: React.FC<PropsType> = (props) => {
   const activeCategory = useAppSelector((state) => state.filter.category);
   const activeSort = useAppSelector((state) => state.filter.sortType);
   const activeDescendingSort = useAppSelector((state) => state.filter.descendingSortType);

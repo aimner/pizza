@@ -6,7 +6,7 @@ import { changeCategory } from "../../../redux/slice/filterSlice";
 
 const menuText = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Сезонные"] as const;
 
-export const Menu: React.FunctionComponent<{}> = () => {
+export const Menu: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
 
   const activeCategory = useAppSelector((state) => state.filter.category);

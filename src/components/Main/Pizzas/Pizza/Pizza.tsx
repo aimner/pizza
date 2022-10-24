@@ -4,7 +4,7 @@ import { pizzasArr, PizzaType, PizzaTypeInBasket, sizeArr } from "../../../../ty
 import { useAppDispatch, useAppSelector } from "./../../../../redux/hooks";
 import { addItem } from "../../../../redux/slice/backsetSlice";
 
-export const Pizza: React.FunctionComponent<PizzaType> = (props) => {
+export const Pizza: React.FC<PizzaType> = (props) => {
   let [activeDough, setActiveDough] = useState(
     pizzasArr[props.types[0]] as typeof pizzasArr[number]
   );

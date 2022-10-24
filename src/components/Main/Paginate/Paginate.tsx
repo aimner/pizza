@@ -8,7 +8,7 @@ type PropsType = {
   pizzasArr: PizzaType[];
 };
 
-export const Paginate: React.FunctionComponent<PropsType> = (props) => {
+export const Paginate: React.FC<PropsType> = (props) => {
   const dispatch = useAppDispatch();
 
   const numberOfPizzasShown = useAppSelector((state) => state.filter.numberOfPizzasShown);
