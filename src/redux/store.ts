@@ -1,17 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import filter from "./slice/filterSlice";
 import basket from "./slice/backsetSlice";
-import pizzas from "./slice/pizzasSlice"
-
+import pizzas from "./slice/pizzasSlice";
 
 export const store = configureStore({
   reducer: {
     filter,
     basket,
-    pizzas
+    pizzas,
   },
 });
-
 
 export type RootState = ReturnType<typeof store.getState>;
 

@@ -2,7 +2,8 @@
 
 .allPizzas {
     margin-bottom: 35px;
-    @media (max-width: 711px) {
+
+    @media (max-width: 712px) {
         text-align: center;
     }
 }
@@ -13,4 +14,3 @@
     row-gap: 65px;
     column-gap: 35px;
 }
-

@@ -26,11 +26,11 @@ export type PizzaTypeInBasket = {
   title: string;
   price: number;
   count: number;
-  sortValue: SortValueType
+  sortValue: SortValueType;
 };
 
 export type SortValueType = {
   type: string;
   size: number;
   id: number;
-}
+};

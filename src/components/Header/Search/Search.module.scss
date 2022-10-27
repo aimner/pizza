@@ -10,14 +10,13 @@
     width: 280px;
     border-radius: $borderRadius;
     padding-left: 30px;
-    outline:none;
+    outline: none;
     padding-right: 60px;
 
     &:focus {
         border: 1px solid $menuItemHover;
 
     }
-
 
 }
 
@@ -27,8 +26,8 @@
     left: 245px;
     opacity: 0.3;
     cursor: pointer;
+
     &:hover {
         opacity: 0.5;
     }
 }
-

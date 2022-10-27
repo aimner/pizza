@@ -12,13 +12,13 @@ export const fetchPizzas = createAsyncThunk("pizzas/fetchPizzas", async (paramet
 const initialState: initialState = {
   items: [],
   loading: true,
-  status: true
+  status: true,
 };
 
 type initialState = {
   items: PizzaType[];
   loading: boolean;
-  status: boolean
+  status: boolean;
 };
 
 export const pizzasSlice = createSlice({
@@ -38,7 +38,7 @@ export const pizzasSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchPizzas.rejected, (state) => {
-       state.status = false
+      state.status = false;
     });
   },
 });

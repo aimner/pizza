@@ -1,14 +1,15 @@
 import React from "react";
 import classes from "./BasketItem.module.scss";
 import { PizzaTypeInBasket } from "../../../types/types";
-import { addItem, deleteItem, clearAllItemCertainCategory } from "../../../redux/slice/backsetSlice";
-import { useAppDispatch } from './../../../redux/hooks';
-
-
-
+import {
+  addItem,
+  deleteItem,
+  clearAllItemCertainCategory,
+} from "../../../redux/slice/backsetSlice";
+import { useAppDispatch } from "./../../../redux/hooks";
 
 export const BasketItem: React.FC<PizzaTypeInBasket> = (props) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onClickAdd = () => {
     dispatch(
@@ -32,7 +33,9 @@ export const BasketItem: React.FC<PizzaTypeInBasket> = (props) => {
         <img src={props.imageUrl} alt="pizza" />
         <div className={classes.pizzaTitleDescription}>
           <b>{props.title}</b>
-          <p>{props.sortValue.type} <br/> {props.sortValue.size}см.</p>
+          <p>
+            {props.sortValue.type} <br /> {props.sortValue.size}см.
+          </p>
         </div>
       </div>
       <div className={classes.chooseQuantity}>
@@ -40,8 +43,14 @@ export const BasketItem: React.FC<PizzaTypeInBasket> = (props) => {
         <div>{props.count}</div>
         <div onClick={onClickAdd}>+</div>
       </div>
-      <div className={classes.pizzaCost}><b>{props.count * props.price}</b> P</div>
-      <div className={classes.deletePizza} onClick={() => dispatch(clearAllItemCertainCategory(props))}>+</div>
+      <div className={classes.pizzaCost}>
+        <b>{props.count * props.price}</b> P
+      </div>
+      <div
+        className={classes.deletePizza}
+        onClick={() => dispatch(clearAllItemCertainCategory(props))}>
+        +
+      </div>
     </div>
   );
 };

@@ -5,11 +5,12 @@
     flex-wrap: wrap;
     list-style-type: none;
     column-gap: 9px;
+
     @media (max-width: 772px) {
-         display: grid;
-         grid-template-columns: 1fr 1fr;
-         grid-template-rows: 1fr 1fr 1fr;
-         gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
     }
 
     li {

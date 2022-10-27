@@ -5,15 +5,12 @@ import debounce from "lodash.debounce";
 import { changeSearchValue } from "../../../redux/slice/filterSlice";
 import { useAppDispatch } from "./../../../redux/hooks";
 
-
-
 export const Search: React.FC<{}> = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const onSearch = useCallback(
     debounce((item: string) => {
       dispatch(changeSearchValue(item));
-      
     }, 500),
     []
   );
@@ -26,9 +23,11 @@ export const Search: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={classes.searchBlock} >
-      {searchValue && <img src={close} onClick={() => allEvents('')} alt="close" className={classes.imgClose} />}
-    
+    <div className={classes.searchBlock}>
+      {searchValue && (
+        <img src={close} onClick={() => allEvents("")} alt="close" className={classes.imgClose} />
+      )}
+
       <input
         value={searchValue}
         onChange={(e) => allEvents(e.target.value)}

@@ -12,5 +12,3 @@ export const ErrorComponent: React.FC<{}> = () => {
     </div>
   );
 };
-
-

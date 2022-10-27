@@ -13,7 +13,6 @@ import {
 } from "../../redux/slice/filterSlice";
 
 export const Header: React.FC<{}> = () => {
-
   let params = useLocation();
 
   const pizzasInBasket = useAppSelector((state) => state.basket.items);
@@ -21,7 +20,7 @@ export const Header: React.FC<{}> = () => {
   const status = useAppSelector((state) => state.pizzas.status);
   const dispatch = useAppDispatch();
 
-  const isMounted = useRef(false)
+  const isMounted = useRef(false);
 
   const onChangeParams = () => {
     dispatch(changeCategory(0));
@@ -31,10 +30,10 @@ export const Header: React.FC<{}> = () => {
   };
 
   useEffect(() => {
-    if(isMounted.current) {
+    if (isMounted.current) {
       localStorage.setItem("pizzas", JSON.stringify(pizzasInBasket));
     }
-    isMounted.current = true
+    isMounted.current = true;
   }, [pizzasInBasket]);
 
   return (

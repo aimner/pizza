@@ -1,5 +1,5 @@
 import React from "react";
-import { pizzasArr, PizzaType } from "../../../types/types";
+import { PizzaType } from "../../../types/types";
 import classes from "./Paginate.module.scss";
 import { useAppDispatch, useAppSelector } from "./../../../redux/hooks";
 import { chanheNumberOnPaginationButton } from "../../../redux/slice/filterSlice";

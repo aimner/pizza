@@ -5,7 +5,6 @@
     padding: 40px 50px 96px 67px;
     max-width: 1400px;
     background-color: $whiteColor;
-    // min-height: calc(100vh - 139px);
 
 }
 
@@ -17,7 +16,8 @@
 .section {
     padding: 250px 0;
     @include flex(column, center, center);
-    & > div:first-child {
+
+    &>div:first-child {
         font-size: xx-large;
     }
 }
