@@ -41,7 +41,7 @@
     border: 1px solid #D3D3D3;
     border-radius: $borderRadius;
     @include flex(row, center, center);
-    transition: $transition;
+
     color: $colorTextGrey;
     img {
         margin-right: 10px;
@@ -58,7 +58,6 @@
     border-radius: $borderRadius;
     padding: 18px 30px 16px;
     color: $whiteColor;
-    transition: $transition;
     &:hover {
         background: $activeButtonColor;
         cursor: pointer;

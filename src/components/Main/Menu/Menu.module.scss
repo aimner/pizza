@@ -10,7 +10,7 @@
         @include flex(row, center, center);
         border-radius: $borderRadius;
         padding: 0 15px;
-        transition: $transition;
+
         cursor: pointer;
 
         &:not(:last-child) {

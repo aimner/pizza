@@ -31,7 +31,7 @@
     border: 2px solid rgb(161, 161, 161);
     color: rgb(161, 161, 161);
     transform: rotate(45deg);
-    transition: $transition;
+
     &:hover {
         cursor: pointer;
         background-color: black;
@@ -54,7 +54,6 @@
         border-radius: 50%;
         border: 2px solid $buttonColor;
         @include flex(row, center, center);
-        transition: $transition;
         &:hover {
             cursor: pointer;
             background-color: $activeButtonColor;

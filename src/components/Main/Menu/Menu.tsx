@@ -6,13 +6,12 @@ import { changeCategory } from "../../../redux/slice/filterSlice";
 
 const menuText = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Сезонные"] as const;
 
-export const Menu: React.FC<{}> = () => {
+export const Menu: React.FC<{}> = React.memo(() => {
   const dispatch = useAppDispatch();
 
   const activeCategory = useAppSelector((state) => state.filter.category);
 
   let changeClass = (property: typeof category[number]) => {
-
     if (activeCategory === property) {
       return `${classes.menuListItemActive}`;
     }
@@ -34,4 +33,4 @@ export const Menu: React.FC<{}> = () => {
       ))}
     </ul>
   );
-};
+});

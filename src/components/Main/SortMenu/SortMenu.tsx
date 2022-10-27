@@ -5,16 +5,12 @@ import { sortItemArr, sortItemUrlArr, sortOrderArr } from "../../../types/types"
 import { useAppDispatch, useAppSelector } from "./../../../redux/hooks";
 import classes from "./SortMenu.module.scss";
 
-
-
 type PropsType = {
   activeSortMenu: boolean;
   setActiveSortMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const SortMenu: React.FC<PropsType> = (props) => {
-
-
+export const SortMenu: React.FC<PropsType> = React.memo((props) => {
   const dispatch = useAppDispatch();
 
   const activeSort = useAppSelector((state) => state.filter.sortType);
@@ -31,8 +27,8 @@ export const SortMenu: React.FC<PropsType> = (props) => {
   };
 
   const onchangeDescendingSort = (item: typeof sortOrderArr[number]) => {
-    dispatch(changeDescendingSort(item))
-  }
+    dispatch(changeDescendingSort(item));
+  };
 
   return (
     <div className={classes.sortMenu}>
@@ -69,4 +65,4 @@ export const SortMenu: React.FC<PropsType> = (props) => {
       </div>
     </div>
   );
-};
+});

@@ -33,9 +33,9 @@ export const Main: React.FC<PropsType> = (props) => {
   const firstMounted = useAppSelector((state) => state.filter.mounted);
   const status = useAppSelector((state) => state.pizzas.status);
 
-  let pizzas = useAppSelector((state) =>
-    state.pizzas.items.filter((item) => item.title.toLowerCase().includes(searchText))
-  );
+  const allPizzas = useAppSelector((state) => state.pizzas.items);
+
+  const searchPizzas = allPizzas.filter((item) => item.title.toLowerCase().includes(searchText));
 
   const navigate = useNavigate();
 
@@ -80,8 +80,8 @@ export const Main: React.FC<PropsType> = (props) => {
               <Menu />
               <SortMenu {...props} />
             </div>
-            <Pizzas pizzasArr={pizzas} />
-            <Paginate pizzasArr={pizzas} />
+            <Pizzas pizzasArr={searchPizzas} />
+            <Paginate pizzasArr={searchPizzas} />
           </>
         ) : (
           <ErrorComponent />

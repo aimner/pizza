@@ -3,10 +3,10 @@ import "./App.scss";
 import { Main } from "./components/Main/Main";
 import { Header } from "./components/Header/Header";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
-import { NotFound } from "./components/NotFound/NotFound";
 import spinner from "./assets/img/Loader/spinner.gif";
 
 const Basket = React.lazy(() => import("./components/Basket/Basket"));
+const NotFound = React.lazy(() => import("./components/NotFound/NotFound"));
 
 type PropsType = {
   activeSortMenu: boolean;

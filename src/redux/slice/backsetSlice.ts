@@ -1,17 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PizzaTypeInBasket, SortValueType } from "../../types/types";
 
-
+function getPizzasFromLS(): { pizzas: PizzaTypeInBasket[]; totalPrice: number } {
+  let pizzas: PizzaTypeInBasket[] = JSON.parse(localStorage.getItem("pizzas")!) || [];
+  let totalPrice = pizzas.reduce((sum, item) => sum + item.price * item.count, 0);
+  return {
+    pizzas,
+    totalPrice,
+  };
+}
 
 const initialState: initialState = {
-  totalPrice: 0,
-  items: [],
+  totalPrice: getPizzasFromLS().totalPrice,
+  items: getPizzasFromLS().pizzas,
 };
 
 type initialState = {
   totalPrice: number;
   items: PizzaTypeInBasket[];
-}
+};
 
 function compare(obj1: SortValueType, obj2: SortValueType, bol: boolean): boolean {
   if (bol) {
@@ -42,7 +49,7 @@ export const basketSlice = createSlice({
         compare(item.sortValue, action.payload.sortValue, true)
       );
 
-      if (pizza  && pizza.count > 1) {
+      if (pizza && pizza.count > 1) {
         pizza.count--;
       } else {
         state.items = state.items.filter((item) =>

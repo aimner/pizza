@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./NotFound.module.scss";
 
-export const NotFound: React.FC<{}> = (props) => {
+ const NotFound: React.FC<{}> = (props) => {
   return (
     <main className={classes.main}>
       <div className={classes.container}>
@@ -13,3 +13,5 @@ export const NotFound: React.FC<{}> = (props) => {
     </main>
   );
 };
+
+export default NotFound
