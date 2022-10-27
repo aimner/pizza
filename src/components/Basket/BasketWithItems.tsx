@@ -28,7 +28,7 @@ const BasketWithItems: React.FC<{}> = () => {
       </div>
       <div className={classes.basketList}>
         {pizzasInBasket.map((item) => (
-          <BasketItem {...item} />
+          <BasketItem {...item} key={item.sortValue.size + item.sortValue.type + item.sortValue.id} />
         ))}
       </div>
       <div className={classes.totalData}>

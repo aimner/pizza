@@ -3,12 +3,19 @@
 
 .container {
     margin: 0 auto;
-    padding: 40px 50px 96px 67px;
+    padding: 30px 50px 96px 50px;
     max-width: 1400px;
     background-color: $whiteColor;
+    @media (max-width: 711px) {
+        padding-inline: 10px;
+    }
 }
 
 .menuContainer {
     @include flex(row, space-between, center);
     margin-bottom: 32px;
+    @media (max-width: 1010px) {
+        @include flex(column, space-between, center);
+        row-gap: 20px;
+    }
 }

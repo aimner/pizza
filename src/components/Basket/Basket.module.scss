@@ -2,9 +2,15 @@
 
 .container {
     margin: 0 auto;
-    padding: 100px 224px 131px 295px;
+    padding: 100px 0 131px 0;
     max-width: 1400px;
     background-color: $whiteColor;
+
+    &>div {
+        max-width: 550px;
+        margin-inline: auto;
+        padding-inline: 10px;
+    }
 }
 
 .basketControl {
@@ -12,22 +18,40 @@
     border-bottom: 1px solid $borderContainer;
     padding-bottom: 30px;
 
+
     &>div {
         @include flex(row, space-between, center);
 
         img {
             margin-right: 12px;
+            @media (max-width: 600px) {
+                margin-right: 3px;
+            }
         }
     }
 }
 
+
+
 .totalData {
     @include flex(row, space-between, center);
     padding: 10px 0 40px;
+
+    @media (max-width: 600px) {
+        @include flex(column, center, center);
+        text-align: center;
+        row-gap: 7px;
+        padding: 15px 0 20px;
+    }
 }
 
 .basketButtons {
     @include flex(row, space-between, center);
+
+    @media (max-width: 600px) {
+        @include flex(column, space-between, center);
+        row-gap: 10px;
+    }
 }
 
 .link {
@@ -43,9 +67,11 @@
     @include flex(row, center, center);
 
     color: $colorTextGrey;
+
     img {
         margin-right: 10px;
     }
+
     &:hover {
         background-color: black;
         color: $whiteColor;
@@ -58,20 +84,25 @@
     border-radius: $borderRadius;
     padding: 18px 30px 16px;
     color: $whiteColor;
+
     &:hover {
         background: $activeButtonColor;
         cursor: pointer;
     }
 }
 
-.clearBasket:hover {
-   color: #cecece;
-   cursor: pointer;
+.clearBasket {
+
+    &:hover {
+        color: #cecece;
+        cursor: pointer;
+    }
 }
 
 .emptyBasket {
     @include flex(column, center, center);
     padding-block: 100px;
+
     * {
         padding-bottom: 10px;
         text-align: center;

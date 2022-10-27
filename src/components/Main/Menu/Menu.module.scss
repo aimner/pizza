@@ -2,7 +2,15 @@
 
 .menuList {
     @include flex(row, space-between, center);
+    flex-wrap: wrap;
     list-style-type: none;
+    column-gap: 9px;
+    @media (max-width: 772px) {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: 1fr 1fr 1fr;
+         gap: 10px;
+    }
 
     li {
         background-color: $menuItem;
@@ -13,12 +21,13 @@
 
         cursor: pointer;
 
-        &:not(:last-child) {
-            margin-right: 9px;
-        }
-
         &:hover {
             background-color: $menuItemHover;
+        }
+
+        @media (max-width: 385px) {
+            font-size: small;
+            font-weight: 600;
         }
     }
 

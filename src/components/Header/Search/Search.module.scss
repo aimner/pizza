@@ -7,10 +7,11 @@
 .search {
     border: 1px solid $menuItem;
     height: 35px;
-    width: 300px;
+    width: 280px;
     border-radius: $borderRadius;
     padding-left: 30px;
     outline:none;
+    padding-right: 60px;
 
     &:focus {
         border: 1px solid $menuItemHover;
@@ -23,7 +24,7 @@
 .imgClose {
     position: absolute;
     top: 5px;
-    left: 250px;
+    left: 245px;
     opacity: 0.3;
     cursor: pointer;
     &:hover {

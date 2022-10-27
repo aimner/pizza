@@ -32,7 +32,7 @@ export const BasketItem: React.FC<PizzaTypeInBasket> = (props) => {
         <img src={props.imageUrl} alt="pizza" />
         <div className={classes.pizzaTitleDescription}>
           <b>{props.title}</b>
-          <p>{props.sortValue.type}, {props.sortValue.size}см.</p>
+          <p>{props.sortValue.type} <br/> {props.sortValue.size}см.</p>
         </div>
       </div>
       <div className={classes.chooseQuantity}>

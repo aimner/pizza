@@ -8,6 +8,12 @@
     background-color: $whiteColor;
     @include flex(row, space-between, center);
     border-bottom: 2px solid #f7f7f7;
+
+    @media (max-width: 840px) {
+        @include flex(column, space-between, center);
+        row-gap: 20px;
+        padding: 20px;
+    }
 }
 
 .basket {
