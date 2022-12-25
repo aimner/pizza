@@ -16,7 +16,7 @@ const EmptyBasket: React.FC<{}> = () => {
       <div>
         <img src={emptyBasket} alt="empty_basket" />
       </div>
-      <Link to="/pizza/items" className={classes.link}>
+      <Link to="/items" className={classes.link}>
         <div className={classes.backButton}>
           <img src={path} alt="path" />
           <p>Вернуться назад</p>
