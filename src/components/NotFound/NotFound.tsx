@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./NotFound.module.scss";
 
 const NotFound: React.FC<{}> = (props) => {

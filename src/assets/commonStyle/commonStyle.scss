@@ -1,18 +1,23 @@
-$whiteColor: #FFFFFF;
-$buttonColor: #FE5F1E;
-$activeButtonColor: #fa4b05;
-$backgroundColor: #f09b7a;
-$menuItem: #ececec;
-$menuItemHover: #dbdada;
-$menuItemActive: #282828;
-$borderRadius: 30px;
-$sortMenuListItemActive: rgba(254, 95, 30, 0.05);
-$pizzaTypeMenu: #F3F3F3;
-$borderContainer: #f7f7f7;
-$colorTextDark: #181818;
+// $whiteColor: #FFFFFF;
+// // var(--button-color): #FE5F1E;
+// // var(--hover-button-color): #fa4b05;
+// $backgroundColor: #f09b7a;
+// $menuItem: #ececec;
+// $menuItemHover: #dbdada;
+// $menuItemActive: #282828;
+// var(--sort-menu-item): rgba(254, 95, 30, 0.05);
+// var(--pizza-block): #F3F3F3;
+// var(--container-border): #f7f7f7;
+// $colorTextDark: #181818;
 $colorTextGrey: #7B7B7B;
+$borderRadius: 30px;
 //////////////////////////////////
 $transition: 0.3s all;
+/////////////////////////////////
+$menuButtonHeight: 46px;
+
+
+
 
 @mixin flex($flex-direction, $justify-content, $align-items) {
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classes from "./Main.module.scss";
 import { Menu } from "./Menu/Menu";
 import { SortMenu } from "./SortMenu/SortMenu";
@@ -17,6 +17,7 @@ import {
 } from "../../redux/slice/filterSlice";
 import { fetchPizzas } from "../../redux/slice/pizzasSlice";
 import { ErrorComponent } from "./../Error/ErrorComponent";
+import { Admin } from "./Admin/Admin";
 
 type PropsType = {
   activeSortMenu: boolean;
@@ -78,6 +79,7 @@ export const Main: React.FC<PropsType> = (props) => {
           <>
             <div className={classes.menuContainer}>
               <Menu />
+              <Admin />
               <SortMenu {...props} />
             </div>
             <Pizzas pizzasArr={searchPizzas} />

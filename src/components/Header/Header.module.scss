@@ -1,13 +1,17 @@
 @import '../../assets/commonStyle/commonStyle.scss';
+@import '../../App.scss';
 
 
 .container {
     margin: 0 auto;
-    padding: 52px 38px 35px 67px;
+    padding: 53px 38px 36px 67px;
+    
     max-width: 1400px;
-    background-color: $whiteColor;
+
+
+    background-color: var(--main-color);
     @include flex(row, space-between, center);
-    border-bottom: 2px solid #f7f7f7;
+    border-bottom: 2px solid var(--container-border);
 
     @media (max-width: 840px) {
         @include flex(column, space-between, center);
@@ -19,9 +23,9 @@
 .basket {
     width: 150px;
     height: 50px;
-    background: $buttonColor;
+    background: var(--button-color);
     border-radius: $borderRadius;
-    color: $whiteColor;
+    color: var(--main-color);
     @include flex(row, center, center);
 
     div:not(:nth-child(3)) {
@@ -29,7 +33,7 @@
     }
 
     &:hover {
-        background: $activeButtonColor;
+        background: var(--hover-button-color);
         cursor: pointer;
     }
 
@@ -65,11 +69,35 @@
 }
 
 .pizzaTitle {
-    color: $colorTextDark;
+    color: var(--menu-item-active);
     @include font(normal, 800, 24px, 29px, 0.01em, uppercase);
 
     &+p {
         color: $colorTextGrey;
         @include font(normal, 400, 16px, 19px, 0, uppercase);
     }
+}
+
+.themeBlock {
+    overflow: hidden;
+    width: 35px;
+    height: 35px;
+    @include flex(column, flex-start, center);
+    gap: 15px;
+}
+
+.sunNotActive {
+    transform: translateY(35px);
+    width: 35px;
+    height: 35px;
+    transition: 0.2s ease all;
+    & + img {
+        transition: 0.5s ease all;
+        transform: translateY(-50px);
+    }
+}
+
+.sun, .moon {
+    width: 35px;
+    height: 35px;
 }

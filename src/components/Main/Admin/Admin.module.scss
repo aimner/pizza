@@ -1,0 +1,25 @@
+@import '../../../assets/commonStyle/commonStyle.scss';
+@import '../../../App.scss';
+
+
+.onAdminMode {
+    height: $menuButtonHeight;
+    background-color: var(--menu-item);
+    @include flex(row, center, center);
+    text-align: center;
+    border-radius: $borderRadius;
+    padding: 0 15px;
+    cursor: pointer;
+
+}
+.offAdminMod {
+    background-color: var(--menu-item-active);
+    height: $menuButtonHeight;
+    @include flex(row, center, center);
+    text-align: center;
+    border-radius: $borderRadius;
+    padding: 0 15px;
+    color: var(--menu-item-active-text);
+    cursor: pointer;
+
+}

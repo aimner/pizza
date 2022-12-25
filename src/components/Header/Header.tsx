@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import classes from "./Header.module.scss";
 import basket from "./../../assets/img/Header/basket.svg";
 import logo from "./../../assets/img/Header/logo.svg";
+import moon from "./../../assets/img/Header/moon.svg";
+import sun from "./../../assets/img/Header/sun.svg";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "./Search/Search";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -11,6 +13,7 @@ import {
   changeSort,
   setNumberOnPaginationButton,
 } from "../../redux/slice/filterSlice";
+import { changeTheme } from "../../redux/slice/themeSlice";
 
 export const Header: React.FC<{}> = () => {
   let params = useLocation();
@@ -19,6 +22,7 @@ export const Header: React.FC<{}> = () => {
   const totalPrice = useAppSelector((state) => state.basket.totalPrice);
   const status = useAppSelector((state) => state.pizzas.status);
   const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme.themeStatus);
 
   const isMounted = useRef(false);
 
@@ -32,15 +36,24 @@ export const Header: React.FC<{}> = () => {
   useEffect(() => {
     if (isMounted.current) {
       localStorage.setItem("pizzas", JSON.stringify(pizzasInBasket));
+      localStorage.setItem("theme", theme);
     }
     isMounted.current = true;
-  }, [pizzasInBasket]);
+  }, [pizzasInBasket, theme]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  const changeClass = () => {
+    return theme === "light" ? `${classes.sun}` : `${classes.sunNotActive}`;
+  };
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
         <Link
-          to="/pizza/items?sortBy=rating&order=desc&page=1"
+          to="/items?sortBy=rating&order=desc&page=1"
           onClick={onChangeParams}
           className={classes.link}>
           <div className={classes.logoAndTitle}>
@@ -51,11 +64,19 @@ export const Header: React.FC<{}> = () => {
             </div>
           </div>
         </Link>
+        <div
+          onClick={() => {
+            dispatch(changeTheme(theme));
+          }}
+          className={classes.themeBlock}>
+          <img className={changeClass()} src={sun} alt="sun" />
+          <img className={classes.moon} src={moon} alt="moon" />
+        </div>
 
-        {params.pathname === "/pizza/basket" || !status ? null : (
+        {params.pathname === "/basket" || !status ? null : (
           <>
             <Search />
-            <Link to="/pizza/basket" className={classes.link}>
+            <Link to="/basket" className={classes.link}>
               <div className={classes.basket}>
                 <div>{totalPrice}P</div>
                 <div className={classes.verticalLine}></div>

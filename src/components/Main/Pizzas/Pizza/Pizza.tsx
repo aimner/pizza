@@ -28,6 +28,7 @@ export const Pizza: React.FC<PizzaType> = (props) => {
     }
     return "";
   };
+  
 
   const onClickAdd = () => {
     dispatch(
@@ -48,7 +49,7 @@ export const Pizza: React.FC<PizzaType> = (props) => {
   return (
     <div className={classes.pizzaListItem}>
       <div className={classes.pizzaImgBlock}>
-        <img src={props.imageUrl} alt="pizza" />
+        <img src={props.imageUrl} alt="pizza" className={classes.pizzaImg}/>
       </div>
       <h4>{props.title}</h4>
       <div className={classes.pizzTypeMenu}>

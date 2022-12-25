@@ -1,9 +1,10 @@
 @import "../../../assets/commonStyle/commonStyle.scss";
+@import "../../../App.scss";
 
 .basketListItem {
   @include flex(row, space-between, center);
   padding: 30px 0;
-  border-bottom: 2px solid $borderContainer;
+  border-bottom: 2px solid var(--container-border);
 }
 
 .imgAndTitleBlock {
@@ -41,8 +42,9 @@
   &:hover {
     cursor: pointer;
     background-color: black;
-    color: $whiteColor;
+    color: var(--main-color);
     border-color: black;
+    transform: rotate(225deg);
   }
 }
 
@@ -51,18 +53,21 @@
   column-gap: 7px;
 
   div:nth-child(2n + 1) {
-    color: $buttonColor;
+    color: var(--button-color);
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 2px solid $buttonColor;
+    border: 2px solid var(--button-color);
     @include flex(row, center, center);
 
     &:hover {
       cursor: pointer;
-      background-color: $activeButtonColor;
-      color: $whiteColor;
+      background-color: var(--hover-button-color);
+      color: var(--main-color);
+      transform: rotate(360deg);
+
     }
+    
   }
 
   @media (max-width: 450px) {

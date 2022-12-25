@@ -1,5 +1,6 @@
 @import './assets/commonStyle/commonStyle.scss';
 
+
 * {
     margin: 0;
     padding: 0;
@@ -10,17 +11,56 @@
 
 .app {
     min-height: 100vh;
-    background-color: $backgroundColor;
+    background-color: var(--body-color);
+    @include flex(column, center, stretch);
 }
 
 .spinner__container {
     margin: 0 auto;
     padding: 300px;
     max-width: 1400px;
-    background-color: $whiteColor;
+    background-color: var(--main-color);
     text-align: center;
+    width: 1400px;
 }
 
+:root[data-theme="light"] {
+    --main-color: #FFFFFF;
+    --body-color: #f09b7a;
+    --button-color: #FE5F1E;
+    --hover-button-color: #fa4b05;
+    --menu-item: #ececec;
+    --sort-menu-item: rgba(254, 95, 30, 0.05);
+    --pizza-block: #F3F3F3;
+    --container-border: #f7f7f7;
+    --input-background: #FFFFFF;
+    --input-border: #ececec;
+    --menu-item-active: #181818;
+    --menu-item-active-text: #FFFFFF;
+    --popap-block: #FFFFFF;
+    --button-border: #d3d3d3;
+    --button-text: #181818;
+    --button-text-hover: #FFFFFF;
 
+}
+
+:root[data-theme="dark"] {
+     --main-color: rgb(42, 46, 58);
+     --body-color: rgb(19, 21, 26);
+     --button-color: #81b3a3;
+     --hover-button-color: #6c9b8b;
+     --menu-item: #444555;
+     --sort-menu-item: #444555;
+     --pizza-block: #444555;
+     --container-border: #444555;
+     --input-background: #444555;
+     --input-border: inherit;
+     --menu-item-active: #0c0c0c;
+     --menu-item-active-text: #7B7B7B;
+     --popap-block: rgb(42, 46, 58);
+     --button-border: rgb(19, 21, 26);
+     --button-text: #7B7B7B;
+     --button-text-hover: #7B7B7B;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap')

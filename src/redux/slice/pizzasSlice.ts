@@ -9,6 +9,13 @@ export const fetchPizzas = createAsyncThunk("pizzas/fetchPizzas", async (paramet
   return response.data;
 });
 
+export const fetchPizza = createAsyncThunk("pizzas/fetchPizza", async (id: string) => {
+  let response = await axios.get<PizzaType>(
+    `https://633c4943f11701a65f734ada.mockapi.io/items/${id}`
+  );
+  return response.data;
+});
+
 const initialState: initialState = {
   items: [],
   loading: true,
@@ -28,6 +35,9 @@ export const pizzasSlice = createSlice({
     changeLoading: (state) => {
       state.loading = true;
     },
+    deletePizza: (state, action: PayloadAction<PizzaType>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload.id);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPizzas.fulfilled, (state, action: PayloadAction<PizzaType[]>) => {
@@ -40,9 +50,13 @@ export const pizzasSlice = createSlice({
     builder.addCase(fetchPizzas.rejected, (state) => {
       state.status = false;
     });
+    builder.addCase(fetchPizza.fulfilled, (state, action: PayloadAction<PizzaType>) => {
+      let index = state.items.findIndex((item) => item.id === action.payload.id);
+      state.items.splice(index, 1, action.payload);
+    });
   },
 });
 
-export const { changeLoading } = pizzasSlice.actions;
+export const { changeLoading, deletePizza } = pizzasSlice.actions;
 
 export default pizzasSlice.reducer;

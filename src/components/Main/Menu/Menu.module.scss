@@ -1,4 +1,5 @@
 @import '../../../assets/commonStyle/commonStyle.scss';
+@import '../../../App.scss';
 
 .menuList {
     @include flex(row, space-between, center);
@@ -14,8 +15,8 @@
     }
 
     li {
-        background-color: $menuItem;
-        height: 46px;
+        background-color: var(--menu-item);
+        height: $menuButtonHeight;
         @include flex(row, center, center);
         border-radius: $borderRadius;
         padding: 0 15px;
@@ -23,7 +24,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: $menuItemHover;
+            background-color: var(--menu-item);
         }
 
         @media (max-width: 385px) {
@@ -33,12 +34,12 @@
     }
 
     .menuListItemActive {
-        background-color: $menuItemActive;
-        color: $whiteColor;
+        background-color: var(--menu-item-active);
+        color: var(--menu-item-active-text);
         cursor: auto;
 
         &:hover {
-            background-color: $menuItemActive;
+            background-color: var(--menu-item-active);
         }
     }
 }

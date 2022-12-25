@@ -3,7 +3,8 @@ import "./App.scss";
 import { Main } from "./components/Main/Main";
 import { Header } from "./components/Header/Header";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
-import spinner from "./assets/img/Loader/spinner.gif";
+import { Modal } from "./components/Popap/Popap";
+import { useAppSelector } from "./redux/hooks";
 
 const Basket = React.lazy(() => import("./components/Basket/Basket"));
 const NotFound = React.lazy(() => import("./components/NotFound/NotFound"));
@@ -14,6 +15,10 @@ type PropsType = {
 };
 
 const Parent: React.FC<PropsType> = (props) => {
+  const activePopapMode = useAppSelector(state => state.admin.activePopapMode)
+ 
+
+
   return (
     <div
       className="app"
@@ -24,11 +29,12 @@ const Parent: React.FC<PropsType> = (props) => {
       <React.Suspense
         fallback={
           <div className="spinner__container">
-            <img src={spinner} alt="spinner" />
+            <b>Идёт загрузка...</b>
           </div>
         }>
         <Outlet />
       </React.Suspense>
+      {activePopapMode ? <Modal/> : null}
     </div>
   );
 };
@@ -36,16 +42,10 @@ const Parent: React.FC<PropsType> = (props) => {
 const App: React.FC<{}> = () => {
   let [activeSortMenu, setActiveSortMenu] = useState(false);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate("/pizza/items");
-  }, []);
-
   return (
     <Routes>
       <Route
-        path="pizza/*"
+        path="/*"
         element={<Parent activeSortMenu={activeSortMenu} setActiveSortMenu={setActiveSortMenu} />}>
         <Route
           path="items"

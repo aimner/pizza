@@ -1,111 +1,114 @@
-@import '../../assets/commonStyle/commonStyle.scss';
+@import "../../assets/commonStyle/commonStyle.scss";
+@import "../../App.scss";
 
 .container {
-    margin: 0 auto;
-    padding: 100px 0 131px 0;
-    max-width: 1400px;
-    background-color: $whiteColor;
+  margin: 0 auto;
+  padding: 105px 0 135px 0;
+  max-width: 1400px;
+  background-color: var(--main-color);
 
-    &>div {
-        max-width: 550px;
-        margin-inline: auto;
-        padding-inline: 10px;
-    }
+  & > div {
+    max-width: 550px;
+    margin-inline: auto;
+    padding-inline: 10px;
+  }
 }
 
 .basketControl {
+  @include flex(row, space-between, center);
+  border-bottom: 1px solid var(--container-border);
+  padding-bottom: 30px;
+
+  & > div {
     @include flex(row, space-between, center);
-    border-bottom: 1px solid $borderContainer;
-    padding-bottom: 30px;
 
+    img {
+      margin-right: 12px;
 
-    &>div {
-        @include flex(row, space-between, center);
-
-        img {
-            margin-right: 12px;
-
-            @media (max-width: 600px) {
-                margin-right: 3px;
-            }
-        }
+      @media (max-width: 600px) {
+        margin-right: 3px;
+      }
     }
+  }
 }
 
-
-
 .totalData {
-    @include flex(row, space-between, center);
-    padding: 10px 0 40px;
+  @include flex(row, space-between, center);
+  padding: 10px 0 40px;
 
-    @media (max-width: 600px) {
-        @include flex(column, center, center);
-        text-align: center;
-        row-gap: 7px;
-        padding: 15px 0 20px;
-    }
+  @media (max-width: 600px) {
+    @include flex(column, center, center);
+    text-align: center;
+    row-gap: 7px;
+    padding: 15px 0 20px;
+  }
 }
 
 .basketButtons {
-    @include flex(row, space-between, center);
+  @include flex(row, space-between, center);
 
-    @media (max-width: 600px) {
-        @include flex(column, space-between, center);
-        row-gap: 10px;
-    }
+  @media (max-width: 600px) {
+    @include flex(column, space-between, center);
+    row-gap: 10px;
+  }
 }
 
 .link {
-    text-decoration: none;
-
+  text-decoration: none;
 }
 
 .backButton {
-    width: 220px;
-    padding: 18px 30px 16px;
-    border: 1px solid #D3D3D3;
-    border-radius: $borderRadius;
-    @include flex(row, center, center);
+  width: 220px;
+  padding: 18px 30px 16px;
+  border: 1px solid var(--button-border);
+  border-radius: $borderRadius;
+  @include flex(row, center, center);
 
-    color: $colorTextGrey;
+  color: var(--button-text);
 
-    img {
-        margin-right: 10px;
-    }
+  img {
+    margin-right: 10px;
+  }
 
-    &:hover {
-        background-color: black;
-        color: $whiteColor;
-    }
+  &:hover {
+    background-color: var(--menu-item-active);
+    color: var(--button-text-hover);
+    border-color: var(--menu-item-active);
+  }
 }
 
 .payButton {
-    @include flex(row, center, center);
-    background: $buttonColor;
-    border-radius: $borderRadius;
-    padding: 18px 30px 16px;
-    color: $whiteColor;
+  @include flex(row, center, center);
+  background: var(--button-color);
+  border-radius: $borderRadius;
+  padding: 18px 30px 16px;
+  color: var(--main-color);
 
-    &:hover {
-        background: $activeButtonColor;
-        cursor: pointer;
-    }
+  &:hover {
+    background: var(--hover-button-color);
+    cursor: pointer;
+  }
 }
 
 .clearBasket {
-
-    &:hover {
-        color: #cecece;
-        cursor: pointer;
-    }
+  transition: $transition;
+  &:hover {
+    color: #cecece;
+    cursor: pointer;
+  }
 }
 
 .emptyBasket {
-    @include flex(column, center, center);
-    padding-block: 100px;
+  @include flex(column, center, center);
+  padding-block: 76px;
 
-    * {
-        padding-bottom: 10px;
-        text-align: center;
-    }
+  * {
+    padding-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.basketList {
+  overflow: auto;
+  height: 430px;
 }

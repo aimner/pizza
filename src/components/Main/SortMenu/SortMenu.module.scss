@@ -1,4 +1,5 @@
 @import '../../../assets/commonStyle/commonStyle.scss';
+@import '../../../App.scss';
 
 .sortReverse {
     transform: rotate(180deg);
@@ -7,14 +8,11 @@
 .sortMenu {
     @include flex(row, center, center);
     position: relative;
-
-    &>*:not(:nth-child(3)) {
-        margin-right: 7px
-    }
+    column-gap: 7px;
 
     .activItemSort {
-        color: $buttonColor;
-        border-bottom: 1px dashed $buttonColor;
+        color: var(--button-color);
+        border-bottom: 1px dashed var(--button-color);
         cursor: pointer;
     }
 }
@@ -43,7 +41,7 @@
     top: 25px;
     left: 61px;
     z-index: 10;
-    background-color: $whiteColor;
+    background-color: var(--main-color);
 
     div {
         cursor: pointer;
@@ -53,8 +51,8 @@
     }
 
     .sortMenuListItemActive {
-        background-color: $sortMenuListItemActive;
-        color: $buttonColor;
+        background-color: var(--sort-menu-item);
+        color: var(--button-color);
         cursor: auto;
 
 

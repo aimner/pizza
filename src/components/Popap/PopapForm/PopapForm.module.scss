@@ -1,0 +1,199 @@
+@import "../../../assets/commonStyle/commonStyle.scss";
+@import "../../../App.scss";
+
+.popapContainerBlock {
+  width: 300px;
+  height: 325px;
+  background-color: var(--popap-block);
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  @include flex(row, center, center);
+
+  &CloseButton {
+    position: absolute;
+    top: 10px;
+    left: 240px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--menu-item-active);
+    color: var(--menu-item-active);
+    @include flex(row, center, center);
+    transform: rotate(45deg);
+    font-size: xx-large;
+    z-index: 1000;
+    transition: $transition;
+
+    &:hover {
+      background-color: var(--menu-item-active);
+      color: var(--menu-item-active-text);
+      border-color: var(--menu-item-active);
+      transform: rotate(225deg);
+      cursor: pointer;
+    }
+  }
+}
+
+.pizzaListItem {
+  max-width: 280px;
+  @include flex(column, center, center);
+
+  h4 {
+    margin-bottom: 22px;
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.pizzTypeMenu {
+  list-style-type: none;
+  @include flex(column, flex-start, flex-start);
+  padding: 10px;
+  row-gap: 7px;
+  width: 280px;
+  border-radius: 10px;
+  background-color: var(--pizza-block);
+
+  .pizzaTypeBlock,
+  .pizzaSizeBlock,
+  .pizzaCostBlock {
+    @include flex(row, flex-start, center);
+    column-gap: 6px;
+    width: 100%;
+  }
+
+  .pizzTypeMenuItem {
+    flex-grow: 1;
+    background: var(--main-color);
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    @include flex(row, center, center);
+    padding: 6px 6px;
+
+    &:hover {
+      background-color: rgb(196, 196, 196);
+      cursor: pointer;
+    }
+  }
+
+  .deletedPizzTypeMenuItem {
+    flex-grow: 1;
+    color: var(--main-color);
+    background: var(--menu-item-active);
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    @include flex(row, center, center);
+    padding: 6px 6px;
+    color: var(--menu-item-active-text);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.buttonsBlock {
+  @include flex(row, center, center);
+  column-gap: 10px;
+}
+
+.saveButtonBlock,
+.deleteButtonBlock {
+  @include flex(row, center, center);
+  width: 100%;
+  padding-top: 17px;
+}
+
+.saveButton,
+.deleteButton,
+.notActiveButton {
+  width: 120px;
+  height: 44px;
+  border-radius: $borderRadius;
+  border: 1px solid var(--button-color);
+  @include flex(row, center, center);
+  padding: 9px 0;
+  color: var(--button-color);
+  cursor: pointer;
+  font-size: larger;
+
+  &:hover {
+    background-color: var(--button-color);
+    color: var(--main-color);
+  }
+}
+
+.deleteButton,
+.notActiveButton {
+  border-color: var(--menu-item-active);
+  color: var(--menu-item-active);
+
+  &:hover {
+    background-color: var(--menu-item-active);
+    color: var(--menu-item-active-text);
+  }
+}
+
+.notActiveButton {
+  &:hover {
+    cursor: auto;
+    background-color: inherit;
+    color: var(--menu-item-active);
+  }
+}
+
+.pizzaImgBlock {
+  @include flex(row, center, center);
+
+  img {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+.costInput,
+.titleInput {
+  flex-grow: 1;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 5px;
+  outline: none;
+  font-size: medium;
+  background-color: var(--popap-block);
+}
+
+.titleInput {
+  align-self: flex-start;
+  border: 1px solid var(--input-border);
+  width: 200px;
+  margin-bottom: 5px;
+  padding-right: 1px;
+  background-color: var(--input-background);
+}
+
+.errorBlock {
+  @include flex(column, center, center);
+  row-gap: 10px;
+  &Button {
+    padding: 9px;
+    border-radius: $borderRadius;
+    border: 1px solid var(--menu-item-active);
+    @include flex(row, center, center);
+    cursor: pointer;
+    font-size: large;
+    background-color: inherit;
+    &:hover {
+      background-color: var(--menu-item-active);
+      color: var(--menu-item-active-text);
+    }
+  }
+}
+
+strong {
+  margin-bottom: 3px;
+}

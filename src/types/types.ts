@@ -11,7 +11,7 @@ export const sortItemArr = ["алфавиту", "цене", "рейтингу"] 
 export const sizeArr = [26, 30, 40] as const;
 
 export type PizzaType = {
-  id: number;
+  id: string;
   imageUrl: string;
   types: number[];
   sizes: number[];
@@ -32,5 +32,5 @@ export type PizzaTypeInBasket = {
 export type SortValueType = {
   type: string;
   size: number;
-  id: number;
+  id: string;
 };

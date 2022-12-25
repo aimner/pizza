@@ -1,21 +1,27 @@
 @import '../../../assets/commonStyle/commonStyle.scss';
+@import "../../../App.scss";
 
 .searchBlock {
     position: relative;
 }
 
 .search {
-    border: 1px solid $menuItem;
+    border: 1px solid var(--input-border);
     height: 35px;
     width: 280px;
     border-radius: $borderRadius;
     padding-left: 30px;
     outline: none;
     padding-right: 60px;
+    background-color: var(--input-background);
 
     &:focus {
-        border: 1px solid $menuItemHover;
+        border: 1px solid var(--input-border);
 
+    }
+
+    &::placeholder {
+        color: black;
     }
 
 }
