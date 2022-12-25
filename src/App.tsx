@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.scss";
 import { Main } from "./components/Main/Main";
 import { Header } from "./components/Header/Header";
-import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { Modal } from "./components/Popap/Popap";
 import { useAppSelector } from "./redux/hooks";
 
