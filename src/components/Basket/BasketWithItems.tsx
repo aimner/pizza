@@ -46,7 +46,7 @@ const BasketWithItems: React.FC<{}> = () => {
         </div>
       </div>
       <div className={classes.basketButtons}>
-        <Link to="/pizza/items" className={classes.link}>
+        <Link to="/items" className={classes.link}>
           <div className={classes.backButton}>
             <img src={path} alt="path" />
             <p>Вернуться назад</p>
