@@ -10,7 +10,7 @@ export const Search: React.FC<{}> = () => {
 
   const onSearch = useCallback(
     debounce((item: string) => {
-      dispatch(changeSearchValue(item));
+      dispatch(changeSearchValue(item.toLowerCase()));
     }, 500),
     []
   );

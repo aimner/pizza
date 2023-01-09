@@ -39,7 +39,7 @@ export const filterSlice = createSlice({
       state.mounted = true;
     },
     changeSearchValue: (state, action: PayloadAction<string>) => {
-      state.searchValue = action.payload;
+      state.searchValue = action.payload.toLowerCase();
       state.numberOnPaginationButton = 1;
       state.mounted = true;
     },
